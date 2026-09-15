@@ -142,6 +142,7 @@ MonoBehaviour:
   rend: {fileID: 3073996415059633263}
   outerCircle: {fileID: 8832649298117658510}
   delayTime: 0.05
+  forceValue: 30
 --- !u!50 &7940956691106915565
 Rigidbody2D:
   serializedVersion: 5
@@ -271,7 +272,7 @@ CircleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: b2dd121a4c63a6d4f8e5212db35cc7a9, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
