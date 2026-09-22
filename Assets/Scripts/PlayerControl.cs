@@ -1,4 +1,3 @@
-using UnityEditor.AnimatedValues;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,6 +19,11 @@ public class PlayerControl : MonoBehaviour
         {
             ball.constraints = RigidbodyConstraints2D.None;
             canLaunch = false;
+        }
+
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            Application.Quit();
         }
     }
 }
