@@ -32,16 +32,17 @@ public class PlayerControl : MonoBehaviour
 
             if (launcher.transform.position.y < lowerLimit.transform.position.y)
             {
-                launcher.transform.position = new Vector3(launcher.transform.position.x ,lowerLimit.transform.position.y, launcher.transform.position.z);
+                launcher.transform.position = new Vector2(launcher.transform.position.x ,lowerLimit.transform.position.y);
             }
         }
         else
         {
+            float distance = Vector2.Distance(launcher.transform.position, upperLimit.transform.position);
             launcher.transform.Translate(Vector2.up * Time.deltaTime * launcherSpeedUp);
 
             if (launcher.transform.position.y > upperLimit.transform.position.y)
             {
-                launcher.transform.position = new Vector3(launcher.transform.position.x, upperLimit.transform.position.y, launcher.transform.position.z);
+                launcher.transform.position = new Vector2(launcher.transform.position.x, upperLimit.transform.position.y);
             }
         }
 
