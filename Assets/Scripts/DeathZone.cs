@@ -23,8 +23,8 @@ public class DeathZone : MonoBehaviour
             ball.transform.rotation = Quaternion.identity;
             ball.gameObject.transform.position = ballSpawn.transform.position;
 
-            ball.constraints = RigidbodyConstraints2D.FreezePositionX;
-            ball.constraints = RigidbodyConstraints2D.FreezePositionY;
+            //ball.constraints = RigidbodyConstraints2D.FreezePositionX;
+            //ball.constraints = RigidbodyConstraints2D.FreezePositionY;
 
             ball.gameObject.SetActive(false);
 
@@ -34,8 +34,6 @@ public class DeathZone : MonoBehaviour
 
     void ReactivateBall()
     {
-        ball.gameObject.SetActive(true);
-
-        playerInput.GetComponent<PlayerControl>().canLaunch = true;
+        ball.gameObject.SetActive(true);        
     }
 }
