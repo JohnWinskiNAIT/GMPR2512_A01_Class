@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerControl : MonoBehaviour
 {
     [SerializeField] Rigidbody2D ball;
-    [SerializeField] HingeJoint2D leftFlipper, rightFlipper;
+    [SerializeField] HingeJoint2D leftFlipper, rightFlipper, rightFlipper2;
     [SerializeField] GameObject launcher, upperLimit, lowerLimit;
 
     public bool canLaunch;
@@ -78,10 +78,12 @@ public class PlayerControl : MonoBehaviour
         if (Keyboard.current.dKey.isPressed)
         {
             rightFlipper.useMotor = true;
+            rightFlipper2.useMotor = true;
         }
         else
         {
             rightFlipper.useMotor = false;
+            rightFlipper2.useMotor = false;
         }
     }
 
