@@ -12,7 +12,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] float launcherSpeedDown, launcherSpeedUp, launcherForce;
 
     float launchDistance;
-    public bool isLaunched;
+    public bool isLaunched, flippersActive;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -66,7 +66,7 @@ public class PlayerControl : MonoBehaviour
             Application.Quit();
         }
 
-        if (Keyboard.current.aKey.isPressed)
+        if (Keyboard.current.aKey.isPressed && flippersActive)
         {
             leftFlipper.useMotor = true;
         }
@@ -75,7 +75,7 @@ public class PlayerControl : MonoBehaviour
             leftFlipper.useMotor = false;
         }
 
-        if (Keyboard.current.dKey.isPressed)
+        if (Keyboard.current.dKey.isPressed && flippersActive)
         {
             rightFlipper.useMotor = true;
             rightFlipper2.useMotor = true;

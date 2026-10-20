@@ -3091,6 +3091,7 @@ MonoBehaviour:
   launcherSpeedUp: 20
   launcherForce: 20
   isLaunched: 0
+  flippersActive: 0
 --- !u!1001 &1118999626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3199,7 +3200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cea0fda864b70745a9b28d5af3161c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LaunchTrigger
-  playerInput: {fileID: 1065058571}
+  playerInput: {fileID: 1065058573}
 --- !u!61 &1210165643
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4391,7 +4392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeathZone
   ballSpawn: {fileID: 580741207}
-  playerInput: {fileID: 1065058571}
+  playerInput: {fileID: 1065058573}
   spawnDelay: 2
 --- !u!61 &1972449240
 BoxCollider2D:

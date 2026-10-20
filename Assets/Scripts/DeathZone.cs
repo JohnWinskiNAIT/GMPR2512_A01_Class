@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class DeathZone : MonoBehaviour
 {
-    [SerializeField] GameObject ballSpawn, playerInput;
+    [SerializeField] GameObject ballSpawn;
+    [SerializeField] PlayerControl playerInput;
     [SerializeField] float spawnDelay = 2.0f;
     Rigidbody2D ball;
 
@@ -11,6 +12,8 @@ public class DeathZone : MonoBehaviour
         ball = collision.gameObject.GetComponentInParent<Rigidbody2D>();
 
         DeactivateBall();
+
+        playerInput.flippersActive = false;
     }
 
     void DeactivateBall()
@@ -22,9 +25,6 @@ public class DeathZone : MonoBehaviour
             ball.angularVelocity = 0;
             ball.transform.rotation = Quaternion.identity;
             ball.gameObject.transform.position = ballSpawn.transform.position;
-
-            //ball.constraints = RigidbodyConstraints2D.FreezePositionX;
-            //ball.constraints = RigidbodyConstraints2D.FreezePositionY;
 
             ball.gameObject.SetActive(false);
 
