@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8362818311271525763}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WeaponLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 329260975487376873}
   - component: {fileID: 9208277983034761341}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 8632586944396984093}
   - component: {fileID: 4777981762208360986}
   - component: {fileID: 3070139455075915106}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Alien
   m_TagString: Alien
   m_Icon: {fileID: 0}
