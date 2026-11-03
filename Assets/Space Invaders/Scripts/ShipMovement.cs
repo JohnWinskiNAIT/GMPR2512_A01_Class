@@ -58,9 +58,9 @@ public class ShipMovement : MonoBehaviour
 
         transform.Translate(moveDirection.normalized * movementSpeed * Time.deltaTime, Space.World);
 
-        if (transform.position.y < bottomBoundry.transform.position.y + shipHeight/2)
+        if (transform.position.y < bottomBoundry.transform.position.y + shipHeight / 2)
         {
-            transform.position = new Vector3(transform.position.x, bottomBoundry.transform.position.y + shipHeight/2, transform.position.z); 
+            transform.position = new Vector3(transform.position.x, bottomBoundry.transform.position.y + shipHeight / 2, transform.position.z);
         }
 
         if (transform.position.y > topBoundry.transform.position.y - shipHeight / 2)
