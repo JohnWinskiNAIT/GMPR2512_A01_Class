@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    [SerializeField] float moveDirection = 1, moveSpeed = 3.0f, moveDelay = 0.5f, timeStamp;
+    [SerializeField] float moveDirection = 1, moveSpeed = 3.0f, moveDelay = 0.5f, dropDistance = 0.5f, timeStamp;
 
     [SerializeField] float bulletSpeed = 5, fireRate = 2.0f, fireStamp;
     [SerializeField] int ammo = 5;
@@ -68,6 +68,7 @@ public class Target : MonoBehaviour
         {
             timeStamp = Time.time;
             moveDirection = -moveDirection;
+            transform.position += Vector3.down * dropDistance;
         }
     }
 
@@ -85,7 +86,7 @@ public class Target : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log(hit.collider.name);
+                    //Debug.Log(hit.collider.name);
                 }
             }            
         }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class ShipMovement : MonoBehaviour
@@ -13,7 +14,7 @@ public class ShipMovement : MonoBehaviour
     [SerializeField] GameObject topBoundry, bottomBoundry, leftBoundry, rightBoundry;
 
     [SerializeField] GameObject weaponLocation, bullet;
-
+    Vector2 moveDirection;
     void Awake()
     {
         moveAction = InputSystem.actions.FindAction("Ship/Move");
@@ -54,29 +55,29 @@ public class ShipMovement : MonoBehaviour
     void Update()
     {
         #region Movement
-        Vector2 moveDirection = moveAction.ReadValue<Vector2>();
+        moveDirection = moveAction.ReadValue<Vector2>();
 
-        transform.Translate(moveDirection.normalized * movementSpeed * Time.deltaTime, Space.World);
+        
 
-        if (transform.position.y < bottomBoundry.transform.position.y + shipHeight / 2)
-        {
-            transform.position = new Vector3(transform.position.x, bottomBoundry.transform.position.y + shipHeight / 2, transform.position.z);
-        }
+        //if (transform.position.y < bottomBoundry.transform.position.y + shipHeight / 2)
+        //{
+        //    transform.position = new Vector3(transform.position.x, bottomBoundry.transform.position.y + shipHeight / 2, transform.position.z);
+        //}
 
-        if (transform.position.y > topBoundry.transform.position.y - shipHeight / 2)
-        {
-            transform.position = new Vector3(transform.position.x, topBoundry.transform.position.y - shipHeight / 2, transform.position.z);
-        }
+        //if (transform.position.y > topBoundry.transform.position.y - shipHeight / 2)
+        //{
+        //    transform.position = new Vector3(transform.position.x, topBoundry.transform.position.y - shipHeight / 2, transform.position.z);
+        //}
 
-        if (transform.position.x > rightBoundry.transform.position.x + shipWidth / 2)
-        {
-            transform.position = new Vector3(rightBoundry.transform.position.x + shipWidth / 2, transform.position.y, transform.position.z);
-        }
+        //if (transform.position.x > rightBoundry.transform.position.x + shipWidth / 2)
+        //{
+        //    transform.position = new Vector3(rightBoundry.transform.position.x + shipWidth / 2, transform.position.y, transform.position.z);
+        //}
 
-        if (transform.position.x < leftBoundry.transform.position.x - shipWidth / 2)
-        {
-            transform.position = new Vector3(leftBoundry.transform.position.x - shipWidth / 2, transform.position.y, transform.position.z);
-        }
+        //if (transform.position.x < leftBoundry.transform.position.x - shipWidth / 2)
+        //{
+        //    transform.position = new Vector3(leftBoundry.transform.position.x - shipWidth / 2, transform.position.y, transform.position.z);
+        //}
         #endregion
 
         #region Rotation
@@ -94,6 +95,11 @@ public class ShipMovement : MonoBehaviour
         angles.z = Mathf.Clamp(angles.z, minRotation, maxRotation);
         transform.eulerAngles = angles;
         #endregion
+    }
+
+    private void FixedUpdate()
+    {
+        transform.Translate(moveDirection.normalized * movementSpeed * Time.deltaTime, Space.World);
     }
 
     void FireButtonPressed(InputAction.CallbackContext context)
@@ -124,5 +130,14 @@ public class ShipMovement : MonoBehaviour
     void FireButtonReleased(InputAction.CallbackContext context)
     {
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "AlienBullet" || 
+            collision.transform.tag == "Alien")
+        {
+            gameObject.SetActive(false);
+        }            
     }
 }
