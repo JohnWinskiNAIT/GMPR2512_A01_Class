@@ -83,17 +83,26 @@ public class ShipMovement : MonoBehaviour
         #region Rotation
         float rotateDirection = rotateAction.ReadValue<float>();
 
-        transform.Rotate(0,0,rotateDirection * rotateSpeed * Time.deltaTime);
-
-        Vector3 angles = transform.eulerAngles;
-
-        if (angles.z > 180f)
+        if (rotateDirection != 0)
         {
-            angles.z -= 360f;
-        }
+            transform.Rotate(0, 0, rotateDirection * rotateSpeed * Time.deltaTime);
 
-        angles.z = Mathf.Clamp(angles.z, minRotation, maxRotation);
-        transform.eulerAngles = angles;
+            Vector3 angles = transform.eulerAngles;
+
+            if (angles.z > 180f)
+            {
+                angles.z -= 360f;
+            }
+            angles.z = Mathf.Clamp(angles.z, minRotation, maxRotation);
+            transform.eulerAngles = angles;
+        }
+        else
+        {
+            transform.rotation = Quaternion.identity;
+        }
+        
+
+        
         #endregion
     }
 
