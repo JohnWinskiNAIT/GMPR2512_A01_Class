@@ -1,0 +1,4 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Label text="Current Score: " name="" style="font-size: 40px; background-size: 100% 100%; max-width: 300px; translate: 0 0;"/>
+    <ui:Label text="0" name="ScoreText" style="font-size: 40px; max-width: 100px; translate: 284px -61px;"/>
+</ui:UXML>

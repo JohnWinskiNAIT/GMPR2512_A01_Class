@@ -9,7 +9,7 @@
 .bigButton {
 	background-color: #2c8cff;
     color: white;
-    font-size: 40px;
+    font-size: 20px;
     -unity-font-style: bold;
 
     /* rounded corners and no border */
